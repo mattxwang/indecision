@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="vtrees">
+	<main class="app">
+    <hr />
+    <section>
+      <footer>on <a href="https://github.com/mattxwang/indecision">github</a>; made by <a href="https://matthewwang.me/">matt</a> with <a href="https://reactjs.org/">react</a> on <a href="https://astro.build/">astro</a> + <a href="https://vitejs.dev/">vite</a>, <a href="https://tailwindcss.com/">tailwind</a>, <a href="https://reactflow.dev/">react flow</a></footer>
+    </section>
+	</main>
+</Layout>
+
+<style is:global>
+.app {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+section {
+  margin: 2rem auto;
+  max-width: 60rem;
+}
+
+/* Tailwind overrides */
+a {
+  color: inherit !important;
+  text-decoration: underline !important;
+}
+</style>

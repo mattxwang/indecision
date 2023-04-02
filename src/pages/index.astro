@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../ui/Card.astro';
+---
+
+<Layout title="indecision">
+	<main>
+		<h1 class="text-gradient">indecision</h1>
+		<p class="instructions">
+			bdds, sdds, and vtrees - we've got none of them
+		</p>
+		<ul role="list" class="link-card-grid">
+			<Card
+				href="/vtree"
+				title="VTrees"
+				body="something here soon"
+			/>
+		</ul>
+    <section class="mt-8">
+      <footer>on <a href="https://github.com/mattxwang/indecision">github</a>; made by <a href="https://matthewwang.me/">matt</a> with <a href="https://reactjs.org/">react</a> on <a href="https://astro.build/">astro</a> + <a href="https://vitejs.dev/">vite</a>, <a href="https://tailwindcss.com/">tailwind</a>, <a href="https://reactflow.dev/">react flow</a></footer>
+    </section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+</style>
