@@ -24,6 +24,10 @@ module.exports = {
 
       parserOptions: {
         project: ['./tsconfig.json']
+      },
+
+      rules: {
+        '@typescript-eslint/consistent-type-definitions': 'off'
       }
     }
   ],
