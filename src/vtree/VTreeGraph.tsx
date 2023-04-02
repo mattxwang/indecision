@@ -9,8 +9,8 @@ import ReactFlow, {
 import type { Edge, Node } from 'reactflow'
 
 import 'reactflow/dist/style.css'
-import { genVTreeNodesAndEdges } from '../utils'
-import type { VTree } from '../utils'
+import { genVTreeNodesAndEdges } from '../util/vtree'
+import type { VTree } from '../util/vtree'
 
 interface Props {
   vtree: VTree
