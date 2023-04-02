@@ -1,0 +1,2 @@
+# indecision
+visualized decision diagrams
