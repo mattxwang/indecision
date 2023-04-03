@@ -1,24 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../ui/Card.astro';
+import Footer from '../ui/Footer.astro';
 ---
 
 <Layout title="indecision">
 	<main>
-		<h1 class="text-gradient">indecision</h1>
+		<h1 class="text-gradient">in(dd)ecision</h1>
 		<p class="instructions">
-			bdds, sdds, and vtrees - we've got none of them
+			bdds, sdds, and vtrees - we've got <span class="line-through">none</span> two of them
 		</p>
-		<ul role="list" class="link-card-grid">
+		<ul role="list" class="link-card-grid mb-10">
+			<Card
+				href="/bdd"
+				title="BDDs"
+				body="the classic!"
+			/>
 			<Card
 				href="/vtree"
 				title="VTrees"
-				body="something here soon"
+				body="losing the vforest in the vtrees"
 			/>
 		</ul>
-    <section class="mt-8">
-      <footer>on <a href="https://github.com/mattxwang/indecision">github</a>; made by <a href="https://matthewwang.me/">matt</a> with <a href="https://reactjs.org/">react</a> on <a href="https://astro.build/">astro</a> + <a href="https://vitejs.dev/">vite</a>, <a href="https://tailwindcss.com/">tailwind</a>, <a href="https://reactflow.dev/">react flow</a></footer>
-    </section>
+    <Footer />
 	</main>
 </Layout>
 

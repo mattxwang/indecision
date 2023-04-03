@@ -16,9 +16,6 @@ export default function BDD (): JSX.Element {
 
   return <>
     <section>
-      <h1 className="text-4xl text-bold">BDD!</h1>
-    </section>
-    <section>
       <textarea
           rows={4}
           className="w-full border p-2 rounded"

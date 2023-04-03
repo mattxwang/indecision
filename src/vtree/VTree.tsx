@@ -16,9 +16,6 @@ export default function VTree (): JSX.Element {
 
   return <>
     <section>
-      <h1 className="text-4xl text-bold">VTree!</h1>
-    </section>
-    <section>
       <textarea
         rows={4}
         className="w-full border p-2 rounded"
