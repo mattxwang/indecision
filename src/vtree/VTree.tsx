@@ -1,17 +1,18 @@
 import VTreeGraph from './VTreeGraph'
 import { useState } from 'react'
 import * as wasm from 'rsdd'
+import type { VTree as VTreeType } from '../util/vtree'
 
 const DEFAULT_CNF = `p cnf 3 1
 1 2 3 4 0
 -2 -3 4 5 0
 -4 -5 6 6 0`
 
-export default function VTreeApp (): JSX.Element {
+export default function VTree (): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
   const [cnf, setCnf] = useState('')
 
-  const vtree = cnf === '' ? null : JSON.parse(wasm.get_vtree(cnf)).root
+  const vtree = cnf === '' ? null : JSON.parse(wasm.get_vtree(cnf)).root as VTreeType
 
   return <>
     <section>
