@@ -1,0 +1,19 @@
+{
+  "name": "rsdd",
+  "collaborators": [
+    "Steven Holtzen <sholtzen@gmail.com>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "rsdd_bg.wasm",
+    "rsdd.js",
+    "rsdd_bg.js",
+    "rsdd.d.ts"
+  ],
+  "module": "rsdd.js",
+  "types": "rsdd.d.ts",
+  "sideEffects": [
+    "./rsdd.js",
+    "./snippets/*"
+  ]
+}
