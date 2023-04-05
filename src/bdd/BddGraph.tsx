@@ -31,7 +31,7 @@ export default function BddGraph ({ bdd }: Props): JSX.Element {
       nodes: new DataSet(nodes.map(node => {
         return ({
           id: stringifyTarget(node.index),
-          label: `Var(${node.label})`
+          label: `v${node.label}`
         })
       }).concat([
         { id: 'false', label: 'false' },

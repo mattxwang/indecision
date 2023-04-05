@@ -25,7 +25,7 @@ export default function VTreeGraph ({ vtree }: Props): JSX.Element {
       nodes: new DataSet(nodes.map(node => {
         return ({
           id: node.label,
-          label: node?.value?.toString() ?? ''
+          label: node.value !== undefined ? `v${node.value}` : ''
         })
       })),
       edges: new DataSet(edges.map(edge => {
