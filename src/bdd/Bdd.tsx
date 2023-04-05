@@ -25,10 +25,8 @@ export default function BDD (): JSX.Element {
           value={textarea}
           onChange={(e) => { setTextarea(e.target.value) }}
         />
-      <button className='btn btn-blue' onClick={() => { setCnf(textarea) }}>render</button>
-      {bdd !== null && <div style={{ height: 700 }}>
-        <BddGraph bdd={bdd} />
-      </div>}
+      <button className='btn btn-blue mr-2' onClick={() => { setCnf(textarea) }}>render</button>
+      {bdd !== null && <BddGraph bdd={bdd} /> }
     </section>
   </>
 }

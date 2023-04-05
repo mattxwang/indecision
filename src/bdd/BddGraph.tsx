@@ -20,6 +20,8 @@ function stringifyTarget (target: number | BddSink): string {
 
 export default function BddGraph ({ bdd }: Props): JSX.Element {
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const imageDownloadRef = useRef<HTMLAnchorElement | null>(null)
+
   useEffect(() => {
     if (containerRef.current === null) return
 
@@ -48,11 +50,22 @@ export default function BddGraph ({ bdd }: Props): JSX.Element {
       }))
     }
 
-    // eslint-disable-next-line no-new
-    new Network(containerRef.current, data, options)
-  }, [containerRef, bdd])
+    const network = new Network(containerRef.current, data, options)
+    network.on('afterDrawing', ctx => {
+      if (imageDownloadRef.current === null) return
+      imageDownloadRef.current.href = ctx.canvas.toDataURL()
+    })
 
+    return () => {
+      network.destroy()
+    }
+  }, [containerRef, imageDownloadRef, bdd])
   return (
-    <div className="bg-white h-full mt-2" ref={containerRef} />
+    <>
+      <a className="btn btn-blue" href="#" ref={imageDownloadRef} download>save image</a>
+      <div style={{ height: '700px', maxHeight: '100vh' }}>
+        <div className="bg-white h-full mt-2" ref={containerRef}/>
+      </div>
+    </>
   )
 }
