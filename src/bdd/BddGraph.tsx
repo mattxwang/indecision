@@ -1,37 +1,15 @@
-import ReactFlow, {
-  Background,
-  Controls,
-  useNodesState,
-  useEdgesState,
-  MarkerType
-} from 'reactflow'
+import { useEffect, useRef } from 'react'
 
-import type { Edge, Node } from 'reactflow'
+import { DataSet } from 'vis-data'
+import { Network } from 'vis-network'
+import type { Data } from 'vis-network'
 
-import 'reactflow/dist/style.css'
 import { BddSink, genBddNodesAndEdges } from '../util/bdd'
-import type { BddWrapper, ConvertedBddEdge } from '../util/bdd'
-
-const VERT_SPACE = 100
-const HORZ_SPACE = 50
+import type { BddWrapper } from '../util/bdd'
+import { DEFAULT_TREE_OPTIONS as options } from '../util/vis'
 
 interface Props {
   bdd: BddWrapper
-}
-
-function generateGraphNode (node: {
-  index: number
-  label: number
-}): Node<{ label: string }> {
-  const { index, label } = node
-  return ({
-    id: stringifyTarget(index),
-    position: {
-      x: index * 5, // TODO: much better heuristic for this
-      y: label * VERT_SPACE
-    },
-    data: { label: `Var(${label})` }
-  })
 }
 
 function stringifyTarget (target: number | BddSink): string {
@@ -40,57 +18,41 @@ function stringifyTarget (target: number | BddSink): string {
   return `node-${target}`
 }
 
-function generateGraphEdge (edge: ConvertedBddEdge): Edge {
-  const { source, target } = edge
-  return ({
-    id: `${source}-${target}`,
-    source: stringifyTarget(source),
-    target: stringifyTarget(target),
-    label: edge.type,
-    markerEnd: {
-      type: MarkerType.ArrowClosed,
-      height: 10,
-      width: 10
-    },
-    style: {
-      strokeWidth: 2,
-      stroke: edge.compl ? 'red' : 'black'
-    }
-  })
-}
-
-function generateGraphData (bdd: BddWrapper): { defaultNodes: Node[], defaultEdges: Edge[] } {
-  const { nodes, edges } = genBddNodesAndEdges(bdd)
-
-  const depth = Math.max(...nodes.map(node => node.label))
-
-  return {
-    defaultNodes: [
-      { id: 'false', position: { x: -HORZ_SPACE, y: (depth + 1) * VERT_SPACE }, data: { label: 'false' } },
-      { id: 'true', position: { x: HORZ_SPACE, y: (depth + 1) * VERT_SPACE }, data: { label: 'true' } }
-    ].concat(nodes.map(generateGraphNode)),
-    defaultEdges: edges.map(generateGraphEdge)
-  }
-}
-
 export default function BddGraph ({ bdd }: Props): JSX.Element {
-  const { defaultNodes, defaultEdges } = generateGraphData(bdd)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  useEffect(() => {
+    if (containerRef.current === null) return
 
-  const [nodes,, onNodesChange] = useNodesState(defaultNodes)
-  const [edges,, onEdgesChange] = useEdgesState(defaultEdges)
+    const { nodes, edges } = genBddNodesAndEdges(bdd)
+
+    const data: Data = {
+      nodes: new DataSet(nodes.map(node => {
+        return ({
+          id: stringifyTarget(node.index),
+          label: `Var(${node.label})`
+        })
+      }).concat([
+        { id: 'false', label: 'false' },
+        { id: 'true', label: 'true' }
+      ])),
+      edges: new DataSet(edges.map(edge => {
+        const { compl, source, target, type } = edge
+        return {
+          id: `${source}-${target}`,
+          from: stringifyTarget(source),
+          to: stringifyTarget(target),
+          // label: type,
+          dashes: type === 'low' ? [5, 5] : false,
+          color: compl ? 'red' : 'inherit'
+        }
+      }))
+    }
+
+    // eslint-disable-next-line no-new
+    new Network(containerRef.current, data, options)
+  }, [containerRef, bdd])
+
   return (
-  <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      fitView
-      // note: if we ever make money from this, we should remove this;
-      // see: https://reactflow.dev/docs/guides/remove-attribution/
-      proOptions={{ hideAttribution: true }}
-    >
-      <Controls />
-    <Background />
-  </ReactFlow>
+    <div className="bg-white h-full mt-2" ref={containerRef} />
   )
 }

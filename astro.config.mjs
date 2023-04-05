@@ -11,9 +11,6 @@ import tailwind from '@astrojs/tailwind'
 export default defineConfig({
   integrations: [react(), tailwind()],
   vite: {
-    plugins: [wasm()],
-    ssr: {
-      noExternal: [/reactflow/]
-    }
+    plugins: [wasm()]
   }
 })

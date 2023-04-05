@@ -18,8 +18,8 @@ export type BddWrapper = {
 }
 
 export enum BddSink {
-  False = 'False',
-  True = 'True',
+  False = 'false',
+  True = 'true',
 }
 
 export type ConvertedBdd = {

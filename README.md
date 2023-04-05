@@ -34,4 +34,4 @@ The last command will generate a `pkg` directory in `rsdd`. Copy the contents of
 
 The generic frontend is pretty simple: React + TypeScript running on Astro (which uses Vite). The trickiest part was to get Vite/esbuild to play nicely with WASM, which required a few tries (and looking at tutorials).
 
-Reactflow is used for the diagrams and interactivity; Tailwind is my CSS framework. 
+vis.js is used for the diagrams and interactivity; Tailwind is my CSS framework.
