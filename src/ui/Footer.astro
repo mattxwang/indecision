@@ -1,6 +1,32 @@
+---
+interface Props { hideNav?: boolean }
+const { hideNav } = Astro.props
+
+const showNav = !hideNav
+---
+
 <hr />
-<section class="mt-8">
-  <footer>on <a href="https://github.com/mattxwang/indecision">github</a>; made by <a href="https://matthewwang.me/">matt</a> with <a href="https://reactjs.org/">react</a> on <a href="https://astro.build/">astro</a> + <a href="https://vitejs.dev/">vite</a>, <a href="https://tailwindcss.com/">tailwind</a>, <a href="https://visjs.org/">vis.js</a>. powered by <a href="https://github.com/pmall-neu/rsdd/">rsdd</a></footer>
+<section class="mt-4">
+  <footer>
+    {showNav && <ul>
+      <li class="inline">
+        <a href="/">home</a>
+      </li>
+      |
+      <li class="inline">
+        <a href="/bdd">bdd</a>
+      </li>
+      |
+      <li class="inline">
+        <a href="/vtree">vtree</a>
+      </li>
+    </ul>
+    <hr class="my-3" />
+    }
+    <p>
+      on <a href="https://github.com/mattxwang/indecision">github</a>; made by <a href="https://matthewwang.me/">matt</a> with <a href="https://reactjs.org/">react</a> + <a href="https://tailwindcss.com/">tailwind</a> + <a href="https://visjs.org/">vis.js</a> on <a href="https://astro.build/">astro</a> + <a href="https://vitejs.dev/">vite</a>. powered by <a href="https://github.com/pmall-neu/rsdd/">rsdd</a>
+    </p>
+  </footer>
 </section>
 
 <style>

@@ -16,9 +16,12 @@ export default function BDD (): JSX.Element {
 
   return <>
     <section>
+      <p>
+        plop in any DIMACS-formatted CNF, and get the corresponding compressed BDD (with a right-linear vtree)!
+      </p>
       <textarea
           rows={4}
-          className="w-full border p-2 rounded"
+          className="w-full border p-2 rounded mt-2"
           value={textarea}
           onChange={(e) => { setTextarea(e.target.value) }}
         />
