@@ -1,0 +1,267 @@
+{
+  "nodes": [
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 4,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Literal": {
+            "label": 5,
+            "polarity": true
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 4,
+            "polarity": false
+          }
+        },
+        "sub": "True"
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 0,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": false
+          }
+        },
+        "sub": "False"
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 0,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": false
+          }
+        },
+        "sub": "True"
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 2,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 2,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 2,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 1,
+            "compl": false
+          }
+        }
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 0,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 3,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Literal": {
+            "label": 4,
+            "polarity": true
+          }
+        }
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 2,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 4,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 2,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 2,
+            "compl": false
+          }
+        }
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 1,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 5,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 1,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 3,
+            "compl": false
+          }
+        }
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 1,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 5,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 1,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 2,
+            "compl": false
+          }
+        }
+      }
+    ],
+    [
+      {
+        "prime": {
+          "Literal": {
+            "label": 0,
+            "polarity": true
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 7,
+            "compl": false
+          }
+        }
+      },
+      {
+        "prime": {
+          "Literal": {
+            "label": 0,
+            "polarity": false
+          }
+        },
+        "sub": {
+          "Ptr": {
+            "index": 6,
+            "compl": false
+          }
+        }
+      }
+    ]
+  ],
+  "roots": [
+    {
+      "Ptr": {
+        "index": 8,
+        "compl": false
+      }
+    }
+  ]
+}
