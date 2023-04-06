@@ -28,7 +28,11 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
         return `${polarity ? '' : '!'}${label}`
       }
 
-      return { id: `and-${i}-${j}`, label: `${getLabelForNode(prime)} | ${getLabelForNode(sub)}` }
+      return {
+        id: `and-${i}-${j}`,
+        label: `${getLabelForNode(prime)} | ${getLabelForNode(sub)}`,
+        shape: 'box'
+      }
     })
   })
 
