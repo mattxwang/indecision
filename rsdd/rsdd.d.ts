@@ -10,3 +10,8 @@ export function get_vtree(cnf_input: string): string;
 * @returns {string}
 */
 export function get_bdd(cnf_input: string): string;
+/**
+* @param {string} cnf_input
+* @returns {string}
+*/
+export function get_sdd(cnf_input: string): string;

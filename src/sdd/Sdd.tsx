@@ -1,9 +1,7 @@
 import SddGraph from './SddGraph'
-import type { BddWrapper } from '../util/bdd'
 import { useState } from 'react'
 import * as wasm from 'rsdd'
 
-import sdd from '../assets/sdd.json'
 import type { SddWrapper } from '../util/sdd'
 
 const DEFAULT_CNF = `p cnf 3 1
@@ -15,7 +13,7 @@ export default function SDD (): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
   const [cnf, setCnf] = useState('')
 
-  const bdd = cnf === '' ? null : JSON.parse(wasm.get_bdd(cnf)) as BddWrapper
+  const sdd = cnf === '' ? null : JSON.parse(wasm.get_sdd(cnf)) as SddWrapper
 
   return <>
     <section>
@@ -29,7 +27,7 @@ export default function SDD (): JSX.Element {
           onChange={(e) => { setTextarea(e.target.value) }}
         />
       <button className='btn btn-blue mr-2' onClick={() => { setCnf(textarea) }}>render</button>
-      {bdd !== null && <SddGraph sdd={sdd as SddWrapper} /> }
+      {sdd !== null && <SddGraph sdd={sdd} /> }
     </section>
   </>
 }
