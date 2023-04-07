@@ -13,7 +13,7 @@ interface Props {
 function genSddNodesAndEdges (sdd: SddWrapper): Data {
   const { nodes } = sdd
 
-  const ors = nodes.map((_, i) => ({ id: `or-${i}`, label: 'v' }))
+  const ors = nodes.map((_, i) => ({ id: `or-${i}`, label: 'or' }))
 
   const ands = nodes.flatMap((ands, i) => {
     return ands.map((node, j) => {
@@ -30,7 +30,7 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
 
       return {
         id: `and-${i}-${j}`,
-        label: `${getLabelForNode(prime)} | ${getLabelForNode(sub)}`,
+        label: `p: ${getLabelForNode(prime)} | s: ${getLabelForNode(sub)}`,
         shape: 'box'
       }
     })
@@ -59,7 +59,8 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
           from: `and-${i}-${j}`,
           to: `or-${index}`,
           dashes: isSub ? [5, 5] : false,
-          color: compl ? 'red' : 'inherit'
+          color: compl ? 'red' : 'inherit',
+          label: isSub ? 'sub' : 'prime'
         }]
       }
 
