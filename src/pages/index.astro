@@ -1,62 +1,55 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../ui/Card.astro';
-import Footer from '../ui/Footer.astro';
+import Layout from '../layouts/Layout.astro'
+import Card from '../ui/Card.astro'
+import Footer from '../ui/Footer.astro'
 ---
 
 <Layout title="indecision">
-	<main>
-		<h1 class="text-gradient">in(dd)ecision</h1>
-		<p class="instructions">
-			bdds, sdds, and vtrees - we've got <span class="line-through">none</span> two of them
-		</p>
-		<ul role="list" class="link-card-grid mb-10">
-			<Card
-				href="/bdd"
-				title="BDDs"
-				body="the classic!"
-			/>
-			<Card
-				href="/sdd"
-				title="SDDs"
-				body="new and improved!"
-			/>
-			<Card
-				href="/vtree"
-				title="VTrees"
-				body="losing the vforest in the vtrees"
-			/>
-		</ul>
+  <main>
+    <h1 class="text-gradient">in(dd)ecision</h1>
+    <p class="instructions">
+      bdds, sdds, and vtrees - we've got <span class="line-through">none</span> two
+      of them
+    </p>
+    <ul role="list" class="link-card-grid mb-10">
+      <Card href="/bdd" title="BDDs" body="the classic!" />
+      <Card href="/sdd" title="SDDs" body="new and improved!" />
+      <Card
+        href="/vtree"
+        title="VTrees"
+        body="losing the vforest in the vtrees"
+      />
+    </ul>
     <Footer hideNav />
-	</main>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
 </style>

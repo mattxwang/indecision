@@ -7,19 +7,20 @@ export const DEFAULT_TREE_OPTIONS: Options = {
     shape: 'circle',
     color: {
       border: 'black',
-      background: 'white'
-    }
+      background: 'white',
+    },
   },
   edges: {
-    arrows: 'to'
+    arrows: 'to',
   },
-  layout: { // note: the upstream type here is 'any
+  layout: {
+    // note: the upstream type here is 'any
     hierarchical: {
       enabled: true,
       levelSeparation: 100,
       nodeSpacing: 100,
       shakeTowards: 'roots',
-      sortMethod: 'directed'
-    }
-  }
+      sortMethod: 'directed',
+    },
+  },
 }

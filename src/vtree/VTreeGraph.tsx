@@ -13,7 +13,7 @@ interface Props {
   vtree: VTree
 }
 
-export default function VTreeGraph ({ vtree }: Props): JSX.Element {
+export default function VTreeGraph({ vtree }: Props): JSX.Element {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -22,26 +22,28 @@ export default function VTreeGraph ({ vtree }: Props): JSX.Element {
     const { nodes, edges } = genVTreeNodesAndEdges(vtree, 's')
 
     const data: Data = {
-      nodes: new DataSet(nodes.map(node => {
-        return ({
-          id: node.label,
-          label: node.value !== undefined ? `v${node.value}` : ''
+      nodes: new DataSet(
+        nodes.map((node) => {
+          return {
+            id: node.label,
+            label: node.value !== undefined ? `v${node.value}` : '',
+          }
         })
-      })),
-      edges: new DataSet(edges.map(edge => {
-        return {
-          id: `${edge.source} - ${edge.target}`,
-          from: edge.source,
-          to: edge.target
-        }
-      }))
+      ),
+      edges: new DataSet(
+        edges.map((edge) => {
+          return {
+            id: `${edge.source} - ${edge.target}`,
+            from: edge.source,
+            to: edge.target,
+          }
+        })
+      ),
     }
 
     // eslint-disable-next-line no-new
     new Network(containerRef.current, data, options)
   }, [containerRef, vtree])
 
-  return (
-    <div className="bg-white h-full mt-2" ref={containerRef} />
-  )
+  return <div className="bg-white h-full mt-2" ref={containerRef} />
 }

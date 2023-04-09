@@ -1,1 +1,147 @@
-{"root":{"Node":{"left":{"Leaf":0},"right":{"Node":{"left":{"Leaf":1},"right":{"Node":{"left":{"Leaf":2},"right":{"Node":{"left":{"Leaf":3},"right":{"Node":{"left":{"Leaf":4},"right":{"Node":{"left":{"Leaf":5},"right":{"Node":{"left":{"Leaf":6},"right":{"Node":{"left":{"Leaf":7},"right":{"Node":{"left":{"Leaf":8},"right":{"Node":{"left":{"Leaf":9},"right":{"Node":{"left":{"Leaf":10},"right":{"Node":{"left":{"Leaf":11},"right":{"Node":{"left":{"Leaf":12},"right":{"Node":{"left":{"Leaf":13},"right":{"Node":{"left":{"Leaf":14},"right":{"Node":{"left":{"Leaf":15},"right":{"Node":{"left":{"Leaf":16},"right":{"Node":{"left":{"Leaf":17},"right":{"Node":{"left":{"Leaf":18},"right":{"Node":{"left":{"Leaf":19},"right":{"Node":{"left":{"Leaf":20},"right":{"Node":{"left":{"Leaf":21},"right":{"Node":{"left":{"Leaf":22},"right":{"Node":{"left":{"Leaf":23},"right":{"Leaf":24}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+{
+  "root": {
+    "Node": {
+      "left": { "Leaf": 0 },
+      "right": {
+        "Node": {
+          "left": { "Leaf": 1 },
+          "right": {
+            "Node": {
+              "left": { "Leaf": 2 },
+              "right": {
+                "Node": {
+                  "left": { "Leaf": 3 },
+                  "right": {
+                    "Node": {
+                      "left": { "Leaf": 4 },
+                      "right": {
+                        "Node": {
+                          "left": { "Leaf": 5 },
+                          "right": {
+                            "Node": {
+                              "left": { "Leaf": 6 },
+                              "right": {
+                                "Node": {
+                                  "left": { "Leaf": 7 },
+                                  "right": {
+                                    "Node": {
+                                      "left": { "Leaf": 8 },
+                                      "right": {
+                                        "Node": {
+                                          "left": { "Leaf": 9 },
+                                          "right": {
+                                            "Node": {
+                                              "left": { "Leaf": 10 },
+                                              "right": {
+                                                "Node": {
+                                                  "left": { "Leaf": 11 },
+                                                  "right": {
+                                                    "Node": {
+                                                      "left": { "Leaf": 12 },
+                                                      "right": {
+                                                        "Node": {
+                                                          "left": {
+                                                            "Leaf": 13
+                                                          },
+                                                          "right": {
+                                                            "Node": {
+                                                              "left": {
+                                                                "Leaf": 14
+                                                              },
+                                                              "right": {
+                                                                "Node": {
+                                                                  "left": {
+                                                                    "Leaf": 15
+                                                                  },
+                                                                  "right": {
+                                                                    "Node": {
+                                                                      "left": {
+                                                                        "Leaf": 16
+                                                                      },
+                                                                      "right": {
+                                                                        "Node": {
+                                                                          "left": {
+                                                                            "Leaf": 17
+                                                                          },
+                                                                          "right": {
+                                                                            "Node": {
+                                                                              "left": {
+                                                                                "Leaf": 18
+                                                                              },
+                                                                              "right": {
+                                                                                "Node": {
+                                                                                  "left": {
+                                                                                    "Leaf": 19
+                                                                                  },
+                                                                                  "right": {
+                                                                                    "Node": {
+                                                                                      "left": {
+                                                                                        "Leaf": 20
+                                                                                      },
+                                                                                      "right": {
+                                                                                        "Node": {
+                                                                                          "left": {
+                                                                                            "Leaf": 21
+                                                                                          },
+                                                                                          "right": {
+                                                                                            "Node": {
+                                                                                              "left": {
+                                                                                                "Leaf": 22
+                                                                                              },
+                                                                                              "right": {
+                                                                                                "Node": {
+                                                                                                  "left": {
+                                                                                                    "Leaf": 23
+                                                                                                  },
+                                                                                                  "right": {
+                                                                                                    "Leaf": 24
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

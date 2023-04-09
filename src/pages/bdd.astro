@@ -1,39 +1,39 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
 import Bdd from '../bdd/Bdd'
-import Footer from '../ui/Footer.astro';
+import Footer from '../ui/Footer.astro'
 ---
 
 <Layout title="bdds">
-	<main class="app">
+  <main class="app">
     <section>
       <h1 class="text-4xl text-bold">make your own bdd (using rsdd)</h1>
     </section>
     <Bdd client:load />
     <Footer />
-	</main>
+  </main>
 </Layout>
 
 <style is:global>
-main {
-  margin: auto;
-  padding: 1.5rem;
-  max-width: 60ch;
-}
-.app {
-  width: 100%;
-}
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  .app {
+    width: 100%;
+  }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+  body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+  }
 
-section {
-  margin: 2rem auto;
-  max-width: 60rem;
-}
+  section {
+    margin: 2rem auto;
+    max-width: 60rem;
+  }
 </style>

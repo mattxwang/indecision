@@ -39,29 +39,39 @@ export type ConvertedBddEdge = {
   compl: boolean
 }
 
-function bddEdgeHelper (n: BddLeaf | BddPtr): BddSink | number {
+function bddEdgeHelper(n: BddLeaf | BddPtr): BddSink | number {
   if (n === 'True') return BddSink.True
   if (n === 'False') return BddSink.False
   return n.Ptr.index
 }
 
-function bddComplHelper (n: BddLeaf | BddPtr): boolean {
+function bddComplHelper(n: BddLeaf | BddPtr): boolean {
   if (n === 'True' || n === 'False') return false
   return n.Ptr.compl
 }
 
-export function genBddNodesAndEdges (bddWrapper: BddWrapper): ConvertedBdd {
+export function genBddNodesAndEdges(bddWrapper: BddWrapper): ConvertedBdd {
   const nodes = bddWrapper.nodes.map((node, index) => {
-    return ({ index, label: node.topvar })
+    return { index, label: node.topvar }
   })
   const edges = bddWrapper.nodes.flatMap((node, index) => {
     return [
-      { source: index, target: bddEdgeHelper(node.low), type: 'low' as BddEdgeType, compl: bddComplHelper(node.low) },
-      { source: index, target: bddEdgeHelper(node.high), type: 'high' as BddEdgeType, compl: bddComplHelper(node.high) }
+      {
+        source: index,
+        target: bddEdgeHelper(node.low),
+        type: 'low' as BddEdgeType,
+        compl: bddComplHelper(node.low),
+      },
+      {
+        source: index,
+        target: bddEdgeHelper(node.high),
+        type: 'high' as BddEdgeType,
+        compl: bddComplHelper(node.high),
+      },
     ]
   })
   return {
     nodes,
-    edges
+    edges,
   }
 }

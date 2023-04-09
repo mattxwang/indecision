@@ -10,7 +10,7 @@ interface Props {
   sdd: SddWrapper
 }
 
-function genSddNodesAndEdges (sdd: SddWrapper): Data {
+function genSddNodesAndEdges(sdd: SddWrapper): Data {
   const { nodes } = sdd
 
   const ors = nodes.map((_, i) => ({ id: `or-${i}`, label: 'or' }))
@@ -31,7 +31,7 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
       return {
         id: `and-${i}-${j}`,
         label: `p: ${getLabelForNode(prime)} | s: ${getLabelForNode(sub)}`,
-        shape: 'box'
+        shape: 'box',
       }
     })
   })
@@ -41,7 +41,7 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
       return {
         id: `edge-or-${i}-${j}`,
         from: `or-${i}`,
-        to: `and-${i}-${j}`
+        to: `and-${i}-${j}`,
       }
     })
   })
@@ -54,27 +54,28 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
         if ('Literal' in node) return []
 
         const { compl, index } = node.Ptr
-        return [{
-          id: `edge-and-${i}-${j}-${index}`,
-          from: `and-${i}-${j}`,
-          to: `or-${index}`,
-          dashes: isSub ? [5, 5] : false,
-          color: compl ? 'red' : 'inherit',
-          label: isSub ? 'sub' : 'prime'
-        }]
+        return [
+          {
+            id: `edge-and-${i}-${j}-${index}`,
+            from: `and-${i}-${j}`,
+            to: `or-${index}`,
+            dashes: isSub ? [5, 5] : false,
+            color: compl ? 'red' : 'inherit',
+            label: isSub ? 'sub' : 'prime',
+          },
+        ]
       }
 
-      return addEdgeIfExists(prime, false)
-        .concat(addEdgeIfExists(sub, true))
+      return addEdgeIfExists(prime, false).concat(addEdgeIfExists(sub, true))
     })
   })
   return {
     nodes: ors.concat(ands),
-    edges: andEdges.concat(orEdges)
+    edges: andEdges.concat(orEdges),
   }
 }
 
-export default function SddGraph ({ sdd }: Props): JSX.Element {
+export default function SddGraph({ sdd }: Props): JSX.Element {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const imageDownloadRef = useRef<HTMLAnchorElement | null>(null)
 
@@ -84,7 +85,7 @@ export default function SddGraph ({ sdd }: Props): JSX.Element {
     const data: Data = genSddNodesAndEdges(sdd)
 
     const network = new Network(containerRef.current, data, options)
-    network.on('afterDrawing', ctx => {
+    network.on('afterDrawing', (ctx) => {
       if (imageDownloadRef.current === null) return
       imageDownloadRef.current.href = ctx.canvas.toDataURL()
     })
@@ -95,9 +96,11 @@ export default function SddGraph ({ sdd }: Props): JSX.Element {
   }, [containerRef, imageDownloadRef, sdd])
   return (
     <>
-      <a className="btn btn-blue" href="#" ref={imageDownloadRef} download>save image</a>
+      <a className="btn btn-blue" href="#" ref={imageDownloadRef} download>
+        save image
+      </a>
       <div style={{ height: '700px', maxHeight: '100vh' }}>
-        <div className="bg-white h-full mt-2" ref={containerRef}/>
+        <div className="bg-white h-full mt-2" ref={containerRef} />
       </div>
     </>
   )

@@ -1,4 +1,3 @@
-
 export type VTreeLeaf = {
   Leaf: number
 }
@@ -27,30 +26,35 @@ export type ConvertedVTree = {
   }>
 }
 
-export type EvenSplit = { 'EvenSplit': number }
+export type EvenSplit = { EvenSplit: number }
 export type VTreeType = 'LeftLinear' | 'RightLinear' | EvenSplit
 
-export function genVTreeNodesAndEdges (node: VTree, path: string): ConvertedVTree {
+export function genVTreeNodesAndEdges(
+  node: VTree,
+  path: string
+): ConvertedVTree {
   if ('Leaf' in node) {
-    return ({
+    return {
       nodes: [{ value: node.Leaf, label: `leaf-${node.Leaf}` }],
-      edges: []
-    })
+      edges: [],
+    }
   }
   const l = genVTreeNodesAndEdges(node.Node.left, `${path}l`)
   const r = genVTreeNodesAndEdges(node.Node.right, `${path}r`)
 
-  return ({
+  return {
     nodes: [{ label: path }].concat(l.nodes).concat(r.nodes),
     edges: [
       {
         source: path,
-        target: l.nodes[0].label
+        target: l.nodes[0].label,
       },
       {
         source: path,
-        target: r.nodes[0].label
-      }
-    ].concat(l.edges).concat(r.edges)
-  })
+        target: r.nodes[0].label,
+      },
+    ]
+      .concat(l.edges)
+      .concat(r.edges),
+  }
 }
