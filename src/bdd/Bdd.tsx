@@ -12,7 +12,7 @@ export default function BDD (): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
   const [cnf, setCnf] = useState('')
 
-  const bdd = cnf === '' ? null : JSON.parse(wasm.get_bdd(cnf)) as BddWrapper
+  const bdd = cnf === '' ? null : JSON.parse(wasm.bdd(cnf)) as BddWrapper
 
   return <>
     <section>

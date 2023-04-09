@@ -2,16 +2,18 @@
 /* eslint-disable */
 /**
 * @param {string} cnf_input
-* @returns {string}
+* @param {any} vtree_type_input
+* @returns {any}
 */
-export function get_vtree(cnf_input: string): string;
+export function vtree(cnf_input: string, vtree_type_input: any): any;
 /**
 * @param {string} cnf_input
 * @returns {string}
 */
-export function get_bdd(cnf_input: string): string;
+export function bdd(cnf_input: string): string;
 /**
 * @param {string} cnf_input
-* @returns {string}
+* @param {any} vtree_type_input
+* @returns {any}
 */
-export function get_sdd(cnf_input: string): string;
+export function sdd(cnf_input: string, vtree_type_input: any): any;

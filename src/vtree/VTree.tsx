@@ -1,7 +1,8 @@
 import VTreeGraph from './VTreeGraph'
 import { useState } from 'react'
 import * as wasm from 'rsdd'
-import type { VTree as VTreeType } from '../util/vtree'
+import type { VTree as VTreeTSType, VTreeType } from '../util/vtree'
+import VTreeSelect from './VTreeSelect'
 
 const DEFAULT_CNF = `p cnf 3 1
 1 2 3 4 0
@@ -10,9 +11,10 @@ const DEFAULT_CNF = `p cnf 3 1
 
 export default function VTree (): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
+  const [vtreeType, setVTreeType] = useState<VTreeType>('RightLinear')
   const [cnf, setCnf] = useState('')
 
-  const vtree = cnf === '' ? null : JSON.parse(wasm.get_vtree(cnf)).root as VTreeType
+  const vtree = cnf === '' ? null : wasm.vtree(cnf, vtreeType).root as VTreeTSType
 
   return <>
     <section>
@@ -22,7 +24,8 @@ export default function VTree (): JSX.Element {
         value={textarea}
         onChange={(e) => { setTextarea(e.target.value) }}
       />
-      <button className='btn btn-blue' onClick={() => { setCnf(textarea) }}>render</button>
+      <button className='btn btn-blue mr-2' onClick={() => { setCnf(textarea) }}>render</button>
+      <VTreeSelect setVTreeType={(vtree) => { if (vtree !== vtreeType) setVTreeType(vtree) }} />
       {vtree !== null && <div style={{ height: 700 }}>
         <VTreeGraph vtree={vtree} key={cnf} />
       </div>}

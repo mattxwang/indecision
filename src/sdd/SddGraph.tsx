@@ -55,7 +55,7 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
 
         const { compl, index } = node.Ptr
         return [{
-          id: `edge-and-${i}-${j}`,
+          id: `edge-and-${i}-${j}-${index}`,
           from: `and-${i}-${j}`,
           to: `or-${index}`,
           dashes: isSub ? [5, 5] : false,
@@ -68,7 +68,6 @@ function genSddNodesAndEdges (sdd: SddWrapper): Data {
         .concat(addEdgeIfExists(sub, true))
     })
   })
-
   return {
     nodes: ors.concat(ands),
     edges: andEdges.concat(orEdges)
