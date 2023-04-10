@@ -10,6 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "npm-run-all --parallel --continue-on-error lint:*",
+    "lint:format": "prettier --write .",
     "lint:js": "eslint . --cache --max-warnings=0 --ext .js,.ts,.tsx",
     "lint:types": "tsc"
   },

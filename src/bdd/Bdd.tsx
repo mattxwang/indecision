@@ -35,7 +35,7 @@ export default function BDD(): JSX.Element {
             setCnf(textarea)
           }}
         >
-          render
+          load cnf
         </button>
         {bdd !== null && <BddGraph bdd={bdd} />}
       </section>

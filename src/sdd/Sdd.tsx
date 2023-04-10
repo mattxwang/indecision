@@ -39,7 +39,7 @@ export default function SDD(): JSX.Element {
             setCnf(textarea)
           }}
         >
-          render
+          load cnf
         </button>
         <VTreeSelect
           setVTreeType={(vtree) => {

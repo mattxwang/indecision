@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { VTreeType } from '../util/vtree'
 
-type VTreeTypeLabels = 'LeftLinear' | 'RightLinear' | 'EvenSplit'
+type VTreeTypeLabels = 'LeftLinear' | 'RightLinear' | 'EvenSplit' | 'FromDTree'
 
 type Props = {
   setVTreeType: (vtreeType: VTreeType) => void
@@ -16,6 +16,7 @@ export default function VTreeSelect({ setVTreeType }: Props): JSX.Element {
     { label: 'Right Linear', value: 'RightLinear' },
     { label: 'Left Linear', value: 'LeftLinear' },
     { label: 'Even Split', value: 'EvenSplit' },
+    { label: 'From DTree', value: 'FromDTree' },
   ]
 
   return (

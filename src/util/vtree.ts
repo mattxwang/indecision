@@ -27,7 +27,7 @@ export type ConvertedVTree = {
 }
 
 export type EvenSplit = { EvenSplit: number }
-export type VTreeType = 'LeftLinear' | 'RightLinear' | EvenSplit
+export type VTreeType = 'LeftLinear' | 'RightLinear' | EvenSplit | 'FromDTree'
 
 export function genVTreeNodesAndEdges(
   node: VTree,

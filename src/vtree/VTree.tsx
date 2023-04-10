@@ -34,7 +34,7 @@ export default function VTree(): JSX.Element {
             setCnf(textarea)
           }}
         >
-          render
+          load cnf
         </button>
         <VTreeSelect
           setVTreeType={(vtree) => {
