@@ -3,11 +3,7 @@ import { useState } from 'react'
 import * as wasm from 'rsdd'
 import type { VTree as VTreeTSType, VTreeType } from '../util/vtree'
 import VTreeSelect from './VTreeSelect'
-
-const DEFAULT_CNF = `p cnf 3 1
-1 2 3 4 0
--2 -3 4 5 0
--4 -5 6 6 0`
+import { TINY_CNF_2 as DEFAULT_CNF } from '../util/cnf'
 
 export default function VTree(): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
