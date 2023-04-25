@@ -25,7 +25,7 @@ function genSddNodesAndEdges(sdd: SddWrapper): Data {
         if ('Ptr' in node) return '*'
 
         const { label, polarity } = node.Literal
-        return `${polarity ? '' : '!'}${label}`
+        return `${polarity ? '' : '!'}${label + 1}`
       }
 
       return {

@@ -26,7 +26,7 @@ export default function VTreeGraph({ vtree }: Props): JSX.Element {
         nodes.map((node) => {
           return {
             id: node.label,
-            label: node.value !== undefined ? `v${node.value}` : '',
+            label: node.value !== undefined ? `v${node.value + 1}` : '',
           }
         })
       ),
