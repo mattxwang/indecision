@@ -58,9 +58,7 @@ function genVTreeInternalNodesAndEdges(
   const r = genVTreeInternalNodesAndEdges(node.Node.right, `${path}r`)
 
   return {
-    nodes: [{ label: path }]
-      .concat(l.nodes.filter((node) => node.value === undefined))
-      .concat(r.nodes.filter((node) => node.value === undefined)),
+    nodes: [{ label: path }].concat(l.nodes).concat(r.nodes),
     edges: [
       {
         source: path,
@@ -85,32 +83,9 @@ export function genVTreeNodesAndEdges(
     label: `leaf-${value}`,
   }))
   const { nodes, edges } = genVTreeInternalNodesAndEdges(node, path)
+
   return {
-    nodes: nodes.concat(leaves),
+    nodes: nodes.filter((node) => node.value === undefined).concat(leaves),
     edges,
   }
-  // if ('Leaf' in node) {
-  //   return {
-  //     nodes: [{ value: node.Leaf, label: `leaf-${node.Leaf}` }],
-  //     edges: [],
-  //   }
-  // }
-  // const l = genVTreeNodesAndEdges(node.Node.left, `${path}l`)
-  // const r = genVTreeNodesAndEdges(node.Node.right, `${path}r`)
-
-  // return {
-  //   nodes: [{ label: path }].concat(l.nodes).concat(r.nodes),
-  //   edges: [
-  //     {
-  //       source: path,
-  //       target: l.nodes[0].label,
-  //     },
-  //     {
-  //       source: path,
-  //       target: r.nodes[0].label,
-  //     },
-  //   ]
-  //     .concat(l.edges)
-  //     .concat(r.edges),
-  // }
 }
