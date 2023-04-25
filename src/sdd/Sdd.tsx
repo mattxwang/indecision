@@ -6,13 +6,16 @@ import type { SddWrapper } from '../util/sdd'
 import VTreeSelect from '../vtree/VTreeSelect'
 import type { VTreeType } from '../util/vtree'
 import { TINY_CNF_2 as DEFAULT_CNF } from '../util/cnf'
+import WrappedRsddOutput from '../WrappedRsddOutput'
 
 export default function SDD(): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
   const [vtreeType, setVTreeType] = useState<VTreeType>('RightLinear')
   const [cnf, setCnf] = useState('')
 
-  const sdd = cnf === '' ? null : (wasm.sdd(cnf, vtreeType) as SddWrapper)
+  const sddGenerator = (): JSX.Element => (
+    <SddGraph sdd={wasm.sdd(cnf, vtreeType) as SddWrapper} />
+  )
 
   return (
     <>
@@ -42,7 +45,7 @@ export default function SDD(): JSX.Element {
             if (vtree !== vtreeType) setVTreeType(vtree)
           }}
         />
-        {sdd !== null && <SddGraph sdd={sdd} />}
+        {cnf.trim() !== '' && <WrappedRsddOutput generator={sddGenerator} />}
       </section>
     </>
   )

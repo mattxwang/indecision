@@ -4,14 +4,19 @@ import * as wasm from 'rsdd'
 import type { VTree as VTreeTSType, VTreeType } from '../util/vtree'
 import VTreeSelect from './VTreeSelect'
 import { TINY_CNF_2 as DEFAULT_CNF } from '../util/cnf'
+import WrappedRsddOutput from '../WrappedRsddOutput'
 
 export default function VTree(): JSX.Element {
   const [textarea, setTextarea] = useState(DEFAULT_CNF)
   const [vtreeType, setVTreeType] = useState<VTreeType>('RightLinear')
   const [cnf, setCnf] = useState('')
 
-  const vtree =
-    cnf === '' ? null : (wasm.vtree(cnf, vtreeType).root as VTreeTSType)
+  const vtreeGenerator = (): JSX.Element => (
+    <VTreeGraph
+      vtree={wasm.vtree(cnf, vtreeType).root as VTreeTSType}
+      key={cnf}
+    />
+  )
 
   return (
     <>
@@ -37,9 +42,9 @@ export default function VTree(): JSX.Element {
             if (vtree !== vtreeType) setVTreeType(vtree)
           }}
         />
-        {vtree !== null && (
+        {cnf.trim() !== '' && (
           <div style={{ height: 700 }}>
-            <VTreeGraph vtree={vtree} key={cnf} />
+            <WrappedRsddOutput generator={vtreeGenerator} />
           </div>
         )}
       </section>
