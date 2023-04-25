@@ -33,7 +33,7 @@ export default function BddGraph({ bdd }: Props): JSX.Element {
           .map((node) => {
             return {
               id: stringifyTarget(node.index),
-              label: `v${node.label}`,
+              label: `v${node.label + 1}`,
             }
           })
           .concat([

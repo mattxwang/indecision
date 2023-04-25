@@ -246,6 +246,43 @@ export function bdd(cnf_input) {
     }
 }
 
+let cachedBigUint64Memory0 = null;
+
+function getBigUint64Memory0() {
+    if (cachedBigUint64Memory0 === null || cachedBigUint64Memory0.byteLength === 0) {
+        cachedBigUint64Memory0 = new BigUint64Array(wasm.memory.buffer);
+    }
+    return cachedBigUint64Memory0;
+}
+
+function passArray64ToWasm0(arg, malloc) {
+    const ptr = malloc(arg.length * 8);
+    getBigUint64Memory0().set(arg, ptr / 8);
+    WASM_VECTOR_LEN = arg.length;
+    return ptr;
+}
+/**
+* @param {string} cnf_input
+* @param {BigUint64Array} order
+* @returns {string}
+*/
+export function bdd_with_var_order(cnf_input, order) {
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        const ptr0 = passStringToWasm0(cnf_input, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        const ptr1 = passArray64ToWasm0(order, wasm.__wbindgen_malloc);
+        const len1 = WASM_VECTOR_LEN;
+        wasm.bdd_with_var_order(retptr, ptr0, len0, ptr1, len1);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        return getStringFromWasm0(r0, r1);
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+        wasm.__wbindgen_free(r0, r1);
+    }
+}
+
 /**
 * @param {string} cnf_input
 * @param {any} vtree_type_input
