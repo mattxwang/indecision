@@ -23,3 +23,8 @@ export function bdd_with_var_order(cnf_input: string, order: BigUint64Array): st
 * @returns {any}
 */
 export function sdd(cnf_input: string, vtree_type_input: any): any;
+/**
+* @param {string} cnf_input
+* @returns {any}
+*/
+export function demo_model_count_sdd(cnf_input: string): any;

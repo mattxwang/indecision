@@ -1,14 +1,14 @@
 {
   "name": "rsdd",
   "collaborators": [
-    "Steven Holtzen <sholtzen@gmail.com>"
+    "Steven Holtzen <s.holtzen@northeastern.edu>"
   ],
   "description": "Rust decision diagrams.",
   "version": "0.1.0",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pmall-neu/rsdd"
+    "url": "https://github.com/neuppl/rsdd"
   },
   "files": [
     "rsdd_bg.wasm",
